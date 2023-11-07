@@ -10,3 +10,11 @@ class Location(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Image(models.Model):
+    location = models.ForeignKey(Location, related_name='images', on_delete=models.CASCADE)
+    photo = models.ImageField(null=True, blank=True)
+
+    def __str__(self):
+        return f'{self.id} {self.location.title}'
