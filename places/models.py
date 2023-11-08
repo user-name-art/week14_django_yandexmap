@@ -15,6 +15,7 @@ class Location(models.Model):
 class Image(models.Model):
     location = models.ForeignKey(Location, related_name='images', on_delete=models.CASCADE)
     photo = models.ImageField(null=True, blank=True)
+    position = models.IntegerField(null=True)
 
     def __str__(self):
-        return f'{self.id} {self.location.title}'
+        return f'{self.position} {self.location.title}'
