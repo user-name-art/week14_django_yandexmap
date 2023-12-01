@@ -1,6 +1,9 @@
 from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from django.shortcuts import render, get_object_or_404
+from django.urls import reverse
+from django.core import serializers
+import json
 
 from places.models import Location
 
@@ -20,7 +23,7 @@ def index(request):
           "properties": {
             "title": location.title,
             "placeId": location.title,
-            "detailsUrl": "https://raw.githubusercontent.com/devmanorg/where-to-go-frontend/master/places/moscow_legends.json"
+            "detailsUrl": reverse('get-location', kwargs={'location_id': location.id})
           }
         }
 
