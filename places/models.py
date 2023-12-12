@@ -3,9 +3,9 @@ from tinymce import models as tinymce_models
 
 
 class Location(models.Model):
-    title = models.CharField(max_length=200, unique=True)
-    description_short = models.TextField()
-    description_long = tinymce_models.HTMLField()
+    title = models.CharField(max_length=200, unique=True, verbose_name='название')
+    description_short = models.TextField(verbose_name='короткое описание')
+    description_long = tinymce_models.HTMLField(verbose_name='подробное описание')
     lat = models.FloatField(verbose_name='широта')
     lng = models.FloatField(verbose_name='долгота')
 
@@ -14,12 +14,13 @@ class Location(models.Model):
 
 
 class Image(models.Model):
-    location = models.ForeignKey(Location, related_name='images', on_delete=models.CASCADE)
-    photo = models.ImageField(null=True, blank=True)
+    location = models.ForeignKey(Location, related_name='images', verbose_name='место', on_delete=models.CASCADE)
+    photo = models.ImageField(null=True, blank=True, verbose_name='изображение')
     position = models.PositiveIntegerField(
         default=0,
         blank=False,
         null=False,
+        verbose_name='позиция'
     )
 
     class Meta:
