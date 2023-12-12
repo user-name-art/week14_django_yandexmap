@@ -36,11 +36,11 @@ python3 manage.py runserver
 Часть настроек проекта берётся из переменных окружения. Чтобы их определить, создайте файл `.env` рядом с `manage.py` и запишите туда данные в таком формате: `ПЕРЕМЕННАЯ=значение`.
 
 Доступны 5 переменных:
-- `DEBUG_MODE` — дебаг-режим. Поставьте `True`, чтобы увидеть отладочную информацию в случае ошибки.
-- `SECRET_KEY` — секретный ключ проекта.
-- `DATABASE_ENGINE` — база данных, например: django.db.backends.sqlite3
-- `DB_NAME` — название базы данных, например: db.sqlite3
-- `ALLOWED_HOSTS` — см [документацию Django](https://docs.djangoproject.com/en/3.1/ref/settings/#allowed-hosts)
+- `DEBUG_MODE` — дебаг-режим. Поставьте `True`, чтобы увидеть отладочную информацию в случае ошибки. [Подробнее](https://docs.djangoproject.com/en/4.2/ref/settings/#debug).
+- `SECRET_KEY` — секретный ключ проекта. [Подробнее](https://docs.djangoproject.com/en/4.2/ref/settings/#secret-key).
+- `DATABASE_ENGINE` — база данных, например: django.db.backends.sqlite3 [Подробнее](https://docs.djangoproject.com/en/4.2/ref/settings/#engine).
+- `DB_NAME` — название базы данных, например: db.sqlite3/ [Подробнее](https://docs.djangoproject.com/en/4.2/ref/settings/#name).
+- `ALLOWED_HOSTS` — см [документацию Django](https://docs.djangoproject.com/en/4.2/ref/settings/#allowed-hosts)
 
 ## Добавление данных.
 
