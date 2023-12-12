@@ -1,9 +1,10 @@
-from django.http import HttpResponse, JsonResponse
-from django.template import loader
-from django.shortcuts import render, get_object_or_404
-from django.urls import reverse
-from django.core import serializers
 import json
+
+from django.core import serializers
+from django.http import HttpResponse, JsonResponse
+from django.shortcuts import get_object_or_404, render
+from django.template import loader
+from django.urls import reverse
 
 from .models import Location
 

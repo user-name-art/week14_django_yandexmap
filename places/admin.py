@@ -1,7 +1,9 @@
+from adminsortable2.admin import (SortableAdminBase, SortableAdminMixin,
+                                  SortableStackedInline)
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from .models import Location, Image
-from adminsortable2.admin import SortableAdminBase, SortableStackedInline, SortableAdminMixin
+
+from .models import Image, Location
 
 
 class ImageInline(SortableStackedInline):

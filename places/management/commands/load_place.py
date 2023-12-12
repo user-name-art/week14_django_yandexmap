@@ -1,8 +1,10 @@
-from django.core.management.base import BaseCommand
-from places.models import Location, Image
-from django.core.files.base import ContentFile
 from urllib.parse import urlsplit
+
 import requests
+from django.core.files.base import ContentFile
+from django.core.management.base import BaseCommand
+
+from places.models import Image, Location
 
 
 class Command(BaseCommand):
