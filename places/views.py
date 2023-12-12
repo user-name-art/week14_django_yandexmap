@@ -10,11 +10,11 @@ from .models import Location
 
 
 def index(request):
-    all_locations = Location.objects.all()
+    locations = Location.objects.all()
 
     locations_on_map = []
 
-    for location in all_locations:
+    for location in locations:
         location_properties = {
           'type': 'Feature',
           'geometry': {
