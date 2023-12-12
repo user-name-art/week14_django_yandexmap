@@ -22,4 +22,6 @@ class LocationAdmin(SortableAdminBase, admin.ModelAdmin):
     inlines = [ImageInline]
 
 
-admin.site.register(Image)
+@admin.register(Image)
+class ImageAdmin(admin.ModelAdmin):
+    raw_id_fields = ('location',)
