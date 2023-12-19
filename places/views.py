@@ -12,10 +12,8 @@ from .models import Location
 def index(request):
     locations = Location.objects.all()
 
-    locations_on_map = []
-
-    for location in locations:
-        location_properties = {
+    locations_on_map = [
+        {
           'type': 'Feature',
           'geometry': {
             'type': 'Point',
@@ -27,8 +25,8 @@ def index(request):
             'detailsUrl': reverse('get-location', kwargs={'location_id': location.id})
           }
         }
-
-        locations_on_map.append(location_properties)
+        for location in locations
+    ]
 
 
     data = {'places':
