@@ -47,8 +47,8 @@ def get_location(request, location_id):
     location = {
         'title': target_location.title,
         'imgs': [image.photo.url for image in target_location.images.all()],
-        'description_short': target_location.description_short,
-        'description_long': target_location.description_long,
+        'short_description': target_location.short_description,
+        'long_description': target_location.long_description,
         'coordinates': {
           'lat': target_location.lat,
           'lng': target_location.lng
