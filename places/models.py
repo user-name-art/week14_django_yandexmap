@@ -15,7 +15,7 @@ class Location(models.Model):
 
 class Image(models.Model):
     location = models.ForeignKey(Location, related_name='images', verbose_name='место', on_delete=models.CASCADE)
-    photo = models.ImageField(null=True, blank=True, verbose_name='изображение')
+    photo = models.ImageField(verbose_name='изображение')
     position = models.PositiveIntegerField(
         default=0,
         blank=False,
