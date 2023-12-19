@@ -20,7 +20,8 @@ class Image(models.Model):
         default=0,
         blank=False,
         null=False,
-        verbose_name='позиция'
+        verbose_name='позиция',
+        db_index=True
     )
 
     class Meta:
