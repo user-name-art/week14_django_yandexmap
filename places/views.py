@@ -34,7 +34,7 @@ def index(request):
 
 
 def get_location(request, location_id):
-    target_location = get_object_or_404(Location, id=location_id)
+    target_location = get_object_or_404(Location.objects.prefetch_related('images'), id=location_id)
 
     location = {
         'title': target_location.title,
