@@ -1,5 +1,4 @@
-from adminsortable2.admin import (SortableAdminBase, SortableAdminMixin,
-                                  SortableStackedInline)
+from adminsortable2.admin import (SortableAdminBase, SortableStackedInline)
 from django.contrib import admin
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe

@@ -37,4 +37,4 @@ class Command(BaseCommand):
                 filename = str(urlsplit(photo_url).path).split('/')[-1]
                 location_image.photo.save(filename, ContentFile(response.content), save=True)
 
-        self.stdout.write(self.style.SUCCESS('Successfully added location "%s"' % location.title))        
+        self.stdout.write(self.style.SUCCESS('Successfully added location "%s"' % location.title))
