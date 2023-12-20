@@ -2,6 +2,8 @@
 
 Карта Москвы, на которую пользователи могут добавлять интересные объекты и места для развлечений с подробными описаниями и фотографиями. 
 
+![map](https://github.com/user-name-art/week14_django_yandexmap/assets/112713337/7ba2c80c-fd5d-4c43-b7bb-703d2ebeb91e)
+
 Демо-версия проекта доступна на [pythonanywhere](http://usernameart.pythonanywhere.com/).
 
 ## Запуск
