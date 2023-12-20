@@ -7,6 +7,15 @@ from django.core.management.base import BaseCommand
 from places.models import Image, Location
 
 
+def save_image_to_db(photo_url, location, content):
+    filename = str(urlsplit(photo_url).path).split('/')[-1]
+    location_image = Image.objects.create(
+        location=location,
+        photo=ContentFile(content, name=filename)
+    )
+    location_image.save()
+
+
 class Command(BaseCommand):
     help = 'Download new locations'
 
@@ -34,11 +43,6 @@ class Command(BaseCommand):
                 response = requests.get(photo_url)
                 response.raise_for_status()
 
-                filename = str(urlsplit(photo_url).path).split('/')[-1]
-                location_image = Image.objects.create(
-                    location=location,
-                    photo=ContentFile(response.content, name=filename)
-                )
-                location_image.save()
+                save_image_to_db(photo_url, location, response.content)
 
         self.stdout.write(self.style.SUCCESS('Successfully added location "%s"' % location.title))
