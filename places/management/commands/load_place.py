@@ -20,10 +20,13 @@ class Command(BaseCommand):
 
         location, created = Location.objects.get_or_create(
             title=place['title'],
-            short_description=place['short_description'],
-            long_description=place['long_description'],
-            lat=place['coordinates']['lat'],
-            lng=place['coordinates']['lng'],
+            defaults={
+                    'short_description': place['description_short'],
+                    'long_description': place['description_long'],
+                    'lat': place['coordinates']['lat'],
+                    'lng': place['coordinates']['lng'],
+            }
+
         )
 
         if not location.images.all():
