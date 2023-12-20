@@ -34,10 +34,11 @@ class Command(BaseCommand):
                 response = requests.get(photo_url)
                 response.raise_for_status()
 
-                location_image = Image()
-                location_image.location = location
-                location_image.save()
                 filename = str(urlsplit(photo_url).path).split('/')[-1]
-                location_image.photo.save(filename, ContentFile(response.content), save=True)
+                location_image = Image.objects.create(
+                    location=location,
+                    photo=ContentFile(response.content, name=filename)
+                )
+                location_image.save()
 
         self.stdout.write(self.style.SUCCESS('Successfully added location "%s"' % location.title))
