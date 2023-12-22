@@ -13,7 +13,12 @@ class ImageInline(SortableStackedInline):
     fields = ('photo', 'get_preview', 'position')
 
     def get_preview(self, image):
-        return format_html('<img src="{}" style="max-height:{}px"/>', mark_safe(image.photo.url), 200)
+        max_height = 200
+        max_width = 500
+        return format_html(
+            '<img src="{}" style="max-height:{}px;max-width:{}px;"/>',
+            mark_safe(image.photo.url), max_height, max_width
+            )
 
 
 @admin.register(Location)
