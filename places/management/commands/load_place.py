@@ -9,11 +9,10 @@ from places.models import Image, Location
 
 def save_image_to_db(photo_url, location, content):
     filename = str(urlsplit(photo_url).path).split('/')[-1]
-    location_image = Image.objects.create(
+    Image.objects.create(
         location=location,
         photo=ContentFile(content, name=filename)
     )
-    location_image.save()
 
 
 class Command(BaseCommand):
